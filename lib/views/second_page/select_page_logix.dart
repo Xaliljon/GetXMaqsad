@@ -17,7 +17,6 @@ class SelectPageLogic extends GetxController {
                 borderRadius: BorderRadius.circular(30),
                 padding: EdgeInsets.all(20),
                 onPressed: () => {},
-
                 child: Text(
                   'Samsung',
                   style: TextStyle(color: Colors.black, fontSize: 16),
@@ -55,7 +54,31 @@ class SelectPageLogic extends GetxController {
         buttonColor: Colors.black);
   }
 
-  void sogliq() {}
+  void sogliq() {
+    Get.snackbar('Hozirda bu xizmat ishga tushirilmadi!',
+        '',
+        padding: EdgeInsets.only(top: 15, left: 15, right: 15),
+        icon: Icon(
+          Icons.error_outline_outlined,
+          color: Colors.white,
+          size: 36,
+        ),
+        borderRadius: 20,
+        backgroundColor: Colors.blue,
+        colorText: Colors.white);
+  }
 
-  void avtomobil() {}
+  void avtomobil() {
+    Get.snackbar('Hozirda bu xizmat ishga tushirilmadi',
+        '',
+        padding: EdgeInsets.only(top: 15, left: 15, right: 15),
+        icon: Icon(
+          Icons.error_outline_outlined,
+          color: Colors.white,
+          size: 36,
+        ),
+        borderRadius: 20,
+        backgroundColor: Colors.blue,
+        colorText: Colors.white);
+  }
 }
