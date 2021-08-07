@@ -42,12 +42,14 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
 
-  # The following line ensures that the Material Icons font is
+
+  # The following line ensures  that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    - assets/font/
   uses-material-design: true
 
   #   - images/a_dot_ham.jpeg
@@ -63,7 +65,16 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: assets/font/Montserrat-Regular.ttf
+          weight: 400
+        - asset: assets/font/Montserrat-Medium.ttf
+          weight: 500
+        - asset: assets/font/Montserrat-SemiBold.ttf
+          weight: 600
+
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf

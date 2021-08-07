@@ -32,6 +32,7 @@ class SplashPage extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 14,
                               color: Colors.white,
+                              fontFamily:'Montserrat'
                             )),
                       ))
                 ],
