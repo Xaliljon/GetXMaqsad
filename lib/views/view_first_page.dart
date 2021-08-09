@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:getx_app/ui/custom/custom_button/custom_button.dart';
 import 'package:getx_app/views/logic_first_page.dart';
 import 'package:lottie/lottie.dart';
 
@@ -9,6 +10,7 @@ class FirstPage extends StatelessWidget {
   @override
   Widget build(context) {
     final MainLogic c = Get.put(MainLogic());
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -16,73 +18,50 @@ class FirstPage extends StatelessWidget {
         centerTitle: true,
       ),
       body: SafeArea(
-          child: GetBuilder<MainLogic>(
-        init: MainLogic(),
-        builder: (i) => Padding(
-          padding: const EdgeInsets.all(30.0),
-          child: Stack(children: <Widget>[
+        child: GetBuilder<MainLogic>(
+          init: MainLogic(),
+          builder: (i) => Stack(children: <Widget>[
             ListView(
               children: [
-                Lottie.asset('assets/lote_person.json',
-                    repeat: c.lotianim, reverse: false, animate: c.lotianim),
-                /*ElevatedButton(
-                    child: Text("Boshqa bo'limga kirish"),
-                    onPressed: () => Get.to(Other())),*/
-                TextFormField(
-                  controller: c.textMaqsad,
-                  decoration: InputDecoration(
-                      labelText: 'Maqsadni kiriting:  So\'mda',
-                      fillColor: Colors.black,
-                      border: OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(color: Colors.black, width: 2.0),
-                        borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                Lottie.asset('assets/goalssuc.json',
+                    repeat: true, reverse: false, animate: true),
+                Text(
+                  'Maqsadni aniqlab oldik!\n Keling endi tanishamiz :)',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 24),
+                ),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          left: 20, right: 20, top: 20, bottom: 20),
+                      child: TextFormField(
+                        controller: c.textMaqsad,
+                        decoration: InputDecoration(
+                            labelText: 'Ismingizni kiriting: ',
+                            fillColor: Colors.black,
+                            border: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Colors.black, width: 2.0),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(25.0)),
+                            ),
+                            contentPadding: EdgeInsets.all(20.0)),
+                        keyboardType: TextInputType.name,
                       ),
-                      contentPadding: EdgeInsets.all(20.0)),
-                  inputFormatters: [
-                    FilteringTextInputFormatter.digitsOnly,
-                    LengthLimitingTextInputFormatter(9)
+                    ),
+                    CustomButton(
+                      title: "Kiritish",
+                      isLoading: false,
+                      onPressed: () => {},
+                    ),
                   ],
-                  keyboardType: TextInputType.number,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20.0, right: 20),
-                  child: ElevatedButton(
-                    child: Text("Kiritish"),
-                    onPressed: c.pressbutton
-                        ? () {
-                            c.animCheck();
-                          }
-                        : null,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20.0, right: 20),
-                  child: ElevatedButton(
-                    onPressed: c.pressbutton1
-                        ? () {
-                            c.dicrement();
-                          }
-                        : null,
-                    child: Text('Bekor'),
-                  ),
                 ),
               ],
             ),
           ]),
         ),
-      )),
+      ),
     );
-  }
-}
-
-class Other extends StatelessWidget {
-  // "Попросите" Get найти и предоставить вам ваш Controller, используемый на другой странице.
-  final MainLogic c = Get.find();
-
-  @override
-  Widget build(context) {
-    // Получите доступ к обновленной переменной count
-    return Scaffold(body: Center(child: Text("Sizning maqsadingiz => ${c.s}")));
   }
 }

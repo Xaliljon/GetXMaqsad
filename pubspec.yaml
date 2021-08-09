@@ -28,13 +28,22 @@ dependencies:
   lottie: ^1.1.0
 
 
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
+  flutter_launcher_icons: "^0.9.1"
   flutter_test:
     sdk: flutter
+
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path_android: "assets/launcher/maqsad_android.png"
+  image_path_ios: "assets/launcher/maqsad_android.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -50,6 +59,7 @@ flutter:
   assets:
     - assets/
     - assets/font/
+    - assets/launcher/
   uses-material-design: true
 
   #   - images/a_dot_ham.jpeg

@@ -8,6 +8,6 @@ void main() {
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
     home: SplashPage(),
-    theme: MyThemes.darkTheme,
+    theme: MyThemes.lightTheme,
   ));
 }

@@ -1,62 +1,61 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_app/views/view_first_page.dart';
 
 class SelectPageLogic extends GetxController {
+  var color = Colors.white;
+  var color1 = Colors.white;
+  var color2 = Colors.white;
+  var tcolor = Colors.black;
+  var tcolor1 = Colors.black;
+  var tcolor2 = Colors.black;
+
+  bool _isLoading = false;
+
+  bool get isLoading => _isLoading;
+
+  final model = new TextEditingController();
+  final price = new TextEditingController();
+
+  int state = 0;
+
   void qurilmalar() {
-    Get.defaultDialog(
-        title: "Modelni tanlang",
-        content: Container(
-          width: 300,
-          height: 100,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.all(20),
-            children: [
-              CupertinoButton(
-                borderRadius: BorderRadius.circular(30),
-                padding: EdgeInsets.all(20),
-                onPressed: () => {},
-                child: Text(
-                  'Samsung',
-                  style: TextStyle(color: Colors.black, fontSize: 16),
-                ),
-                color: Colors.white,
-              ),
-              CupertinoButton(
-                borderRadius: BorderRadius.circular(30),
-                padding: EdgeInsets.all(20),
-                onPressed: () => {},
-                child: Text(
-                  'Apple',
-                  style: TextStyle(color: Colors.black, fontSize: 16),
-                ),
-                color: Colors.white,
-              ),
-              CupertinoButton(
-                borderRadius: BorderRadius.circular(30),
-                padding: EdgeInsets.all(20),
-                onPressed: () => {},
-                child: Text(
-                  'Xiaomi',
-                  style: TextStyle(color: Colors.black),
-                ),
-                color: Colors.white,
-              ),
-            ],
-          ),
-        ),
-        textCancel: 'Orqaga',
-        cancelTextColor: Colors.white,
-        textConfirm: 'Tanlash',
-        confirmTextColor: Colors.white,
-        onConfirm: () => {},
-        buttonColor: Colors.black);
+    if (state == 1) {
+      tcolor = Colors.white;
+      color = Color(0xff1171FF);
+
+      color1 = Colors.white;
+      color2 = Colors.white;
+      tcolor1 = Colors.black;
+      tcolor2 = Colors.black;
+      update();
+    } else if (state == 2) {
+      tcolor = Colors.black;
+      tcolor2 = Colors.black;
+      color = Colors.white;
+      color2 = Colors.white;
+
+      tcolor1 = Colors.white;
+      color1 = Color(0xff1171FF);
+      update();
+    } else if (state == 3) {
+      tcolor2 = Colors.white;
+      color2 = Color(0xff1171FF);
+
+      color = Colors.white;
+      color1 = Colors.white;
+      tcolor = Colors.black;
+      tcolor1 = Colors.black;
+
+      update();
+    }
   }
 
   void sogliq() {
-    Get.snackbar('Hozirda bu xizmat ishga tushirilmadi!',
-        '',
+    Get.snackbar('Hozirda bu xizmat ishga tushirilmadi!', '',
         padding: EdgeInsets.only(top: 15, left: 15, right: 15),
         icon: Icon(
           Icons.error_outline_outlined,
@@ -66,11 +65,11 @@ class SelectPageLogic extends GetxController {
         borderRadius: 20,
         backgroundColor: Colors.blue,
         colorText: Colors.white);
+    update();
   }
 
   void avtomobil() {
-    Get.snackbar('Hozirda bu xizmat ishga tushirilmadi',
-        '',
+    Get.snackbar('Hozirda bu xizmat ishga tushirilmadi', '',
         padding: EdgeInsets.only(top: 15, left: 15, right: 15),
         icon: Icon(
           Icons.error_outline_outlined,
@@ -80,5 +79,19 @@ class SelectPageLogic extends GetxController {
         borderRadius: 20,
         backgroundColor: Colors.blue,
         colorText: Colors.white);
+    update();
+  }
+
+  tasdiqlash() {
+    Get.offAll(() => FirstPage(), transition: Transition.cupertino);
+    _isLoading = false;
+    update();
+  }
+
+  startTime() {
+    _isLoading = true;
+    update();
+    var _duration = new Duration(seconds: 2);
+    return Timer(_duration, tasdiqlash);
   }
 }

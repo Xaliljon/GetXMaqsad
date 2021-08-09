@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="uz.peachdev.uz.getx_app">
    <application
-        android:label="getx_app"
+        android:label="Maqsad"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
