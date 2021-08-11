@@ -7,6 +7,7 @@ import 'package:getx_app/views/logic_first_page.dart';
 import 'package:lottie/lottie.dart';
 
 class FirstPage extends StatelessWidget {
+
   @override
   Widget build(context) {
     final MainLogic c = Get.put(MainLogic());

@@ -3,9 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
+import 'package:getx_app/provider/router.dart';
 import 'package:getx_app/ui/widgets/service_card.dart';
 import 'package:getx_app/views/second_page/select_page_logix.dart';
 import 'package:getx_app/views/second_page/select_page_widgets.dart';
+import 'package:getx_app/views/view_first_page.dart';
 import 'package:lottie/lottie.dart';
 
 class SelectPage extends StatelessWidget {
@@ -17,13 +19,21 @@ class SelectPage extends StatelessWidget {
       init: SelectPageLogic(),
       builder: (i) => Scaffold(
         appBar: AppBar(
-          title: Text("MAQSAD"),
+          title: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 80.0, horizontal: 80),
+            child: Image.asset(
+              "assets/launcher/maqsad_android.png",
+              fit: BoxFit.cover,
+            ),
+          ),
+          elevation: 0,
           centerTitle: true,
         ),
         body: SafeArea(
           child: Stack(
             children: [
               SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
                   physics: BouncingScrollPhysics(),
                   child: GetBuilder<SelectPageLogic>(
                     init: SelectPageLogic(),
@@ -32,15 +42,17 @@ class SelectPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: AnimationConfiguration.toStaggeredList(
-                              duration: const Duration(seconds: 2),
+                              duration: const Duration(seconds: 3),
                               childAnimationBuilder: (widget) => SlideAnimation(
-                                  verticalOffset: 50,
+                                  verticalOffset: 100,
                                   child: FadeInAnimation(
                                     child: widget,
                                   )),
                               children: [
-                                Lottie.asset('assets/goal_not.json',
-                                    animate: true, repeat: false),
+                                Card(
+                                  child: Lottie.asset('assets/goal_not.json',
+                                      animate: true, repeat: false),
+                                ),
                                 getServicesColumn(context),
                                 /* CustomButton(
                                           title: 'Telefon qurilmalari',
@@ -73,7 +85,6 @@ class SelectPage extends StatelessWidget {
         icon: 'assets/iphone.png',
         text: 'Telefon qurilmalari',
         onTap: () {
-          logic.notifqurilma();
         },
       ),
       childTopRight: CardService(
@@ -135,6 +146,4 @@ class SelectPage extends StatelessWidget {
       ),
     );
   }
-
-  void show() {}
 }
