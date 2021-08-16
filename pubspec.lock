@@ -8,13 +8,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "22.0.0"
-  achievement_view:
-    dependency: "direct main"
-    description:
-      name: achievement_view
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.1"
   analyzer:
     dependency: transitive
     description:
@@ -43,20 +36,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.6.1"
-  auto_route:
-    dependency: "direct main"
-    description:
-      name: auto_route
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.6.9"
-  auto_route_generator:
-    dependency: "direct dev"
-    description:
-      name: auto_route_generator
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.6.10"
   boolean_selector:
     dependency: transitive
     description:
@@ -93,7 +72,7 @@ packages:
     source: hosted
     version: "1.5.4"
   build_runner:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: build_runner
       url: "https://pub.dartlang.org"
@@ -255,7 +234,7 @@ packages:
       name: get
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.3.4"
+    version: "4.3.8"
   glob:
     dependency: transitive
     description:
@@ -429,13 +408,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
-  source_gen:
-    dependency: transitive
-    description:
-      name: source_gen
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.9.10+3"
   source_span:
     dependency: transitive
     description:

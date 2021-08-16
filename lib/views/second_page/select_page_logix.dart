@@ -1,15 +1,14 @@
-import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_app/provider/router.dart';
 
 
 class SelectPageLogic extends GetxController {
 
 
   bool _isLoading = false;
+
+
 
   bool get isLoading => _isLoading;
 
@@ -29,7 +28,6 @@ class SelectPageLogic extends GetxController {
   }
 
   void sogliq() {
-
     update();
   }
 

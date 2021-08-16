@@ -1,9 +1,7 @@
-import 'package:achievement_view/achievement_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:get/get.dart';
-import 'package:getx_app/provider/router.dart';
 import 'package:getx_app/ui/widgets/service_card.dart';
 import 'package:getx_app/views/second_page/select_page_logix.dart';
 import 'package:getx_app/views/second_page/select_page_widgets.dart';
@@ -54,21 +52,6 @@ class SelectPage extends StatelessWidget {
                                       animate: true, repeat: false),
                                 ),
                                 getServicesColumn(context),
-                                /* CustomButton(
-                                          title: 'Telefon qurilmalari',
-                                          onPressed: (){},
-                                          isLoading: logic.isLoading,
-                                        ),
-                                        CustomButton(
-                                          title: 'Sog\'liq',
-                                          onPressed: () => {logic.sogliq()},
-                                          isLoading: false,
-                                        ),
-                                        CustomButton(
-                                          title: 'Avtomobil',
-                                          onPressed: () => {logic.avtomobil()},
-                                          isLoading: false,
-                                        ),*/
                               ])),
                     ),
                   )),
@@ -85,13 +68,14 @@ class SelectPage extends StatelessWidget {
         icon: 'assets/iphone.png',
         text: 'Telefon qurilmalari',
         onTap: () {
+          Get.to(() => FirstPage(), transition: Transition.rightToLeftWithFade);
         },
       ),
       childTopRight: CardService(
         icon: 'assets/sogliq.png',
         text: "Sog'liq",
         onTap: () {
-          AchievementView(
+          /*AchievementView(
             context,
             title: 'Ushbu funksiya ishlab chiqish jarayonida',
             textStyleTitle: TextStyle(fontSize: 16),
@@ -103,14 +87,14 @@ class SelectPage extends StatelessWidget {
               size: 36,
               color: Colors.white,
             ),
-          )..show();
+          )..show();*/
         },
       ),
       childBottomLeft: CardService(
         icon: "assets/car.png",
         text: 'Avtomobil',
         onTap: () {
-          AchievementView(
+          /*AchievementView(
             context,
             title: 'Ushbu funksiya ishlab chiqish jarayonida',
             textStyleTitle: TextStyle(fontSize: 16),
@@ -122,14 +106,14 @@ class SelectPage extends StatelessWidget {
               size: 36,
               color: Colors.white,
             ),
-          )..show();
+          )..show();*/
         },
       ),
       childBottomRight: CardService(
         icon: "assets/koran.png",
         text: 'Diniy',
         onTap: () {
-          AchievementView(
+          /*AchievementView(
             context,
             title: 'Ushbu funksiya ishlab chiqish jarayonida',
             textStyleTitle: TextStyle(fontSize: 16),
@@ -141,7 +125,7 @@ class SelectPage extends StatelessWidget {
               size: 36,
               color: Colors.white,
             ),
-          )..show();
+          )..show();*/
         },
       ),
     );
